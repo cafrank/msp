@@ -626,7 +626,7 @@ struct SetPid2 : public Message {
 
     std::vector<pid8_t> pids;
 
-    virtual int decode(std::vector<std::vector<uint16_t>> data) {
+    virtual int decodeFrom(std::vector<std::vector<uint16_t>> data) {
         pids.clear();
 
         for(const auto& pid : data) {
@@ -665,7 +665,7 @@ struct InavSetProgrammingPid : public Message {
     uint8_t index;
     InavProgramingPidSettings_t config;
 
-    virtual int decode(uint8_t idx, std::vector<uint16_t> pid) {
+    virtual int decodeFrom(uint8_t idx, std::vector<uint16_t> pid) {
         index = idx;
         config.enabled            = 1;
         config.setpoint.type.x    = 1;
