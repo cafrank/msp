@@ -367,7 +367,7 @@ public:
      * @brief Directly sets the inav live pids using MSP2_SET_PID message
      * @return True on successful message delivery
      */
-    bool setPids(const std::vector<std::vector<uint16_t>> pids);
+    bool setPids(const std::vector<std::vector<uint8_t>> pids);
 
 
     /**
