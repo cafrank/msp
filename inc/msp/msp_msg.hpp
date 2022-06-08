@@ -572,10 +572,10 @@ typedef struct logicOperand_s {
 } logicOperand_t;
 
 typedef struct pid8_s {
-    uint16_t P;
-    uint16_t I;
-    uint16_t D;
-    uint16_t FF;
+    uint8_t P;
+    uint8_t I;
+    uint8_t D;
+    uint8_t FF;
 } pid8_t;
 
 struct InavProgramingPidSettings {
