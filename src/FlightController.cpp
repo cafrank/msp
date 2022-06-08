@@ -297,7 +297,7 @@ bool FlightController::setMixer(const uint8_t mode) {
     return client_.sendMessage(mixer);
 }
 
-bool FlightController::setPids(const std::vector<std::vector<uint16_t>> pids) {
+bool FlightController::setPids(const std::vector<std::vector<uint8_t>> pids) {
     msp::msg::SetPid2 sps(fw_variant_);
     sps.decodeFrom(pids);
     return client_.sendMessage(sps);
