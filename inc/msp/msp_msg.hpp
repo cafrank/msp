@@ -578,11 +578,18 @@ typedef struct pid8_s {
     uint8_t FF;
 } pid8_t;
 
+typedef struct pid16_s {
+    uint16_t P;
+    uint16_t I;
+    uint16_t D;
+    uint16_t FF;
+} pid16_t;
+
 struct InavProgramingPidSettings {
     uint8_t enabled;
     logicOperand_t setpoint;
     logicOperand_t measurement;
-    pid8_t gains;
+    pid16_t gains;
 };
 
 // MSP2_PID = 0x2030,
@@ -626,7 +633,7 @@ struct SetPid2 : public Message {
 
     std::vector<pid8_t> pids;
 
-    virtual int decodeFrom(std::vector<std::vector<uint16_t>> data) {
+    virtual int decodeFrom(std::vector<std::vector<uint8_t>> data) {
         pids.clear();
 
         for(const auto& pid : data) {
